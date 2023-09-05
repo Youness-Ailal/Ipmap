@@ -13,7 +13,9 @@ const formBtn = document.querySelector(".header__btn");
 const form = document.querySelector(".header__form");
 
 // Map variables
-const map = L.map("map").setView([51, -0.09], 18);
+const map = L.map("map", {
+  attributionControl: false,
+}).setView([51, -0.09], 18);
 
 // Get Local IP Address
 spinner.classList.remove("hidden");
