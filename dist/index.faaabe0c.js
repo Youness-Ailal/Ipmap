@@ -1,8 +1,0 @@
-// console.log(iconLocation);
-// App Variables
-const e=document.querySelector("#ip"),t=document.querySelector("#city"),o=document.querySelector("#region"),n=document.querySelector("#country"),r=document.querySelector(".result__flag-image"),a=document.querySelector(".isp"),i=document.querySelector(".utc"),c=document.querySelector(".spinner");document.querySelector(".header__btn");const s=document.querySelector(".header__form"),d=L.map("map").setView([51,-.09],18);// Get Local IP Address
-c.classList.remove("hidden");const u=await fetch("https://api.ipify.org?format=json"),{ip:l}=await u.json();// Get IP, Location, Timezone, ISP
-async function p(s,u){c.classList.remove("hidden");try{let c=await (await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_pMCkCpy23Goiw8MsZZYF588QVkRuK&${s}=${u}`)).json(),{lat:p,lng:m,city:y,region:h,country:g,timezone:f}=c.location,w=await fetch(`https://restcountries.com/v3.1/alpha/${g}`).then(e=>e.json()),S=w[0].name.common||"Unkown",q=w[0].flags.png||"Unkown",{isp:_}=c;e.textContent=l,t.textContent=y,o.textContent=h+" ",n.textContent=S,i.textContent=f,r.src=q,a.textContent=_,d.setView([p,m],18),L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(d),L.marker([p,m]).addTo(d)}catch(e){alert("Invalid IP address or domain!"),console.log(e)}finally{c.classList.add("hidden")}}l?p("ipAddress",l):c.classList.add("hidden"),//Handles form input submission
-s.addEventListener("submit",e=>{e.preventDefault();let t=document.querySelector(".header__input").value;/\d+\.\d+/.test(t)?p("ipAddress",t):p("domain",t)});//# sourceMappingURL=index.faaabe0c.js.map
-
-//# sourceMappingURL=index.faaabe0c.js.map

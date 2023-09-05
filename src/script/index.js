@@ -19,6 +19,7 @@ const map = L.map("map").setView([51, -0.09], 18);
 spinner.classList.remove("hidden");
 const resIp = await fetch(`https://api.ipify.org?format=json`);
 const { ip } = await resIp.json();
+
 if (ip) {
   renderLocation("ipAddress", ip);
 } else {
@@ -30,7 +31,7 @@ async function renderLocation(type, data) {
   try {
     const dataRes = await (
       await fetch(
-        `https://geo.ipify.org/api/v2/country,city?apiKey=at_pMCkCpy23Goiw8MsZZYF588QVkRuK&${type}=${data}`
+        `https://geo.ipify.org/api/v2/country,city?apiKey=at_aHzPdbzv3u3KBYNXAYAwJqr0syjx2&${type}=${data}`
       )
     ).json();
 
@@ -80,19 +81,4 @@ function displayMap(lat, lon) {
   }).addTo(map);
 
   L.marker([lat, lon]).addTo(map);
-}
-
-//Give country info
-async function countryInfo(code) {
-  try {
-    const data = await fetch(
-      `https://restcountries.com/v3.1/alpha/${code}`
-    ).then(res => res.json());
-    return {
-      name: data[0].name.common,
-      flag: data[0].flags.png,
-    };
-  } catch (err) {
-    alert("invalid Ip Address or domain");
-  }
 }

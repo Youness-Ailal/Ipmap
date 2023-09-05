@@ -247,108 +247,30 @@ body {
   text-transform: uppercase;
 }
 
-.pl {
-  width: 10rem;
-  height: 10rem;
-  display: block;
-}
-
-.pl__arrows, .pl__ring-rotate, .pl__ring-stroke, .pl__tick {
-  animation-duration: 2s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.pl__arrows {
-  transform-origin: 16px 52px;
-  animation-name: arrows42;
+.loader {
+  width: 5rem;
+  height: 5rem;
+  position: relative;
   transform: rotate(45deg);
 }
 
-.pl__ring-rotate, .pl__ring-stroke {
-  transform-origin: 80px 80px;
+.loader:before, .loader:after {
+  content: "";
+  background: radial-gradient(11.2px, #0000 94%, #2563eb);
+  border-radius: 50% 50% 0;
+  position: absolute;
+  inset: 0;
 }
 
-.pl__ring-rotate {
-  animation-name: ringRotate42;
+.loader:after {
+  animation: 1s infinite pulse-ytk0dhmd;
+  transform: perspective(336px)translateZ(0);
 }
 
-.pl__ring-stroke {
-  animation-name: ringStroke42;
-  transform: rotate(-45deg);
-}
-
-.pl__tick {
-  animation-name: tick42;
-}
-
-.pl__tick:nth-child(2) {
-  animation-delay: -1.75s;
-}
-
-.pl__tick:nth-child(3) {
-  animation-delay: -1.5s;
-}
-
-.pl__tick:nth-child(4) {
-  animation-delay: -1.25s;
-}
-
-.pl__tick:nth-child(5) {
-  animation-delay: -1s;
-}
-
-.pl__tick:nth-child(6) {
-  animation-delay: -.75s;
-}
-
-.pl__tick:nth-child(7) {
-  animation-delay: -.5s;
-}
-
-.pl__tick:nth-child(8) {
-  animation-delay: -.25s;
-}
-
-@keyframes arrows42 {
-  from {
-    transform: rotate(45deg);
-  }
-
+@keyframes pulse-ytk0dhmd {
   to {
-    transform: rotate(405deg);
-  }
-}
-
-@keyframes ringRotate42 {
-  from {
-    transform: rotate(0);
-  }
-
-  to {
-    transform: rotate(720deg);
-  }
-}
-
-@keyframes ringStroke42 {
-  from, to {
-    stroke-dashoffset: 452px;
-    transform: rotate(-45deg);
-  }
-
-  50% {
-    stroke-dashoffset: 169.5px;
-    transform: rotate(-180deg);
-  }
-}
-
-@keyframes tick42 {
-  from, 3%, 47%, to {
-    stroke-dashoffset: -12px;
-  }
-
-  14%, 36% {
-    stroke-dashoffset: 0;
+    opacity: 0;
+    transform: perspective(336px)translateZ(168px);
   }
 }
 
@@ -365,7 +287,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /*# sourceMappingURL=index.599ca509.css.map */

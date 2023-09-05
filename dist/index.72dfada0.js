@@ -601,7 +601,7 @@ else spinner.classList.add("hidden");
 async function renderLocation(type, data) {
     spinner.classList.remove("hidden");
     try {
-        const dataRes = await (await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_pMCkCpy23Goiw8MsZZYF588QVkRuK&${type}=${data}`)).json();
+        const dataRes = await (await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_aHzPdbzv3u3KBYNXAYAwJqr0syjx2&${type}=${data}`)).json();
         const { lat, lng, city, region, country, timezone } = dataRes.location;
         const countryData = await fetch(`https://restcountries.com/v3.1/alpha/${country}`).then((res)=>res.json());
         const countryName = countryData[0].name.common || "Unkown";
@@ -642,18 +642,6 @@ function displayMap(lat, lon) {
         lat,
         lon
     ]).addTo(map);
-}
-//Give country info
-async function countryInfo(code) {
-    try {
-        const data = await fetch(`https://restcountries.com/v3.1/alpha/${code}`).then((res)=>res.json());
-        return {
-            name: data[0].name.common,
-            flag: data[0].flags.png
-        };
-    } catch (err) {
-        alert("invalid Ip Address or domain");
-    }
 }
 
 },{}]},["1PLhU","iycwR"], "iycwR", "parcelRequireeb42")

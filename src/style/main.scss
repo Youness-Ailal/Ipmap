@@ -238,118 +238,36 @@ body {
 }
 
 //Spinner Style
-.pl {
-  display: block;
-  width: 10rem;
-  height: 10rem;
-}
-
-.pl__arrows,
-.pl__ring-rotate,
-.pl__ring-stroke,
-.pl__tick {
-  animation-duration: 2s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.pl__arrows {
-  animation-name: arrows42;
+.loader {
+  width: 5rem;
+  height: 5rem;
+  position: relative;
   transform: rotate(45deg);
-  transform-origin: 16px 52px;
 }
 
-.pl__ring-rotate,
-.pl__ring-stroke {
-  transform-origin: 80px 80px;
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50% 50% 0 50%;
+  background: #0000;
+  background-image: radial-gradient(
+    circle 11.2px at 50% 50%,
+    #0000 94%,
+    #2563eb
+  );
 }
 
-.pl__ring-rotate {
-  animation-name: ringRotate42;
+.loader:after {
+  animation: pulse-ytk0dhmd 1s infinite;
+  transform: perspective(336px) translateZ(0px);
 }
 
-.pl__ring-stroke {
-  animation-name: ringStroke42;
-  transform: rotate(-45deg);
-}
-
-.pl__tick {
-  animation-name: tick42;
-}
-
-.pl__tick:nth-child(2) {
-  animation-delay: -1.75s;
-}
-
-.pl__tick:nth-child(3) {
-  animation-delay: -1.5s;
-}
-
-.pl__tick:nth-child(4) {
-  animation-delay: -1.25s;
-}
-
-.pl__tick:nth-child(5) {
-  animation-delay: -1s;
-}
-
-.pl__tick:nth-child(6) {
-  animation-delay: -0.75s;
-}
-
-.pl__tick:nth-child(7) {
-  animation-delay: -0.5s;
-}
-
-.pl__tick:nth-child(8) {
-  animation-delay: -0.25s;
-}
-
-/* Animations */
-@keyframes arrows42 {
-  from {
-    transform: rotate(45deg);
-  }
-
+@keyframes pulse-ytk0dhmd {
   to {
-    transform: rotate(405deg);
-  }
-}
-
-@keyframes ringRotate42 {
-  from {
-    transform: rotate(0);
-  }
-
-  to {
-    transform: rotate(720deg);
-  }
-}
-
-@keyframes ringStroke42 {
-  from,
-  to {
-    stroke-dashoffset: 452;
-    transform: rotate(-45deg);
-  }
-
-  50% {
-    stroke-dashoffset: 169.5;
-    transform: rotate(-180deg);
-  }
-}
-
-@keyframes tick42 {
-  from,
-  3%,
-  47%,
-  to {
-    stroke-dashoffset: -12;
-  }
-
-  14%,
-  36% {
-    stroke-dashoffset: 0;
+    transform: perspective(336px) translateZ(168px);
+    opacity: 0;
   }
 }
 
@@ -366,5 +284,5 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
