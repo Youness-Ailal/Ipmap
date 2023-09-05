@@ -1,4 +1,3 @@
-// import iconLocation from "../assets/images/icon-location.svg";
 // console.log(iconLocation);
 // App Variables
 const ipText = document.querySelector("#ip");
@@ -15,11 +14,7 @@ const form = document.querySelector(".header__form");
 
 // Map variables
 const map = L.map("map").setView([51, -0.09], 18);
-const customIcon = L.icon({
-  iconUrl: "assets/images/icon-location.svg",
-  iconSize: [50, 60],
-  iconAnchor: [16, 37],
-});
+
 // Get Local IP Address
 spinner.classList.remove("hidden");
 const resIp = await fetch(`https://api.ipify.org?format=json`);
@@ -84,7 +79,7 @@ function displayMap(lat, lon) {
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
-  L.marker([lat, lon], { icon: customIcon }).addTo(map);
+  L.marker([lat, lon]).addTo(map);
 }
 
 //Give country info
