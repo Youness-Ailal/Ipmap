@@ -1,0 +1,341 @@
+@font-face {
+  font-family: "geo";
+  src: url(../assets/font/Geomatrix.otf);
+}
+@font-face {
+  font-family: "geom";
+  src: url(../assets/font/GeomatrixMedium.otf);
+}
+@font-face {
+  font-family: "geob";
+  src: url(../assets/font/GeomatrixBold.otf);
+}
+:root {
+  --black-stete: #2b2b2b;
+  --indigo: #4f46e5;
+  --blue: #2563eb;
+  --grey: #969696;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: clamp(8px, 1vw, 10px);
+}
+
+body {
+  font-family: geo;
+  line-height: 1.5;
+  display: flex;
+  height: 100dvh;
+  width: 100dvw;
+  display: grid;
+  place-content: center;
+}
+
+.container {
+  height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  background-color: salmon;
+  flex-basis: 35dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-image: url(../assets/images/pattern-bg-desktop.png);
+  background-size: cover;
+}
+.header__title {
+  font-size: 4rem;
+  font-family: geob;
+  letter-spacing: 2px;
+  color: #fff;
+}
+.header__form {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 1rem;
+  margin-bottom: 10rem;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+.header__input {
+  padding: 1.5rem;
+  font-family: geob;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  border-radius: 1rem;
+  border: none;
+  width: 50rem;
+}
+.header__input::placeholder {
+  font-size: 1.6rem;
+  letter-spacing: 0px;
+  font-family: geo;
+  opacity: 0.8;
+}
+.header__input:focus {
+  outline: none;
+}
+@media (width < 400px) {
+  .header__input {
+    width: 40rem;
+  }
+}
+.header__btn {
+  border: none;
+  padding: 2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  background-color: var(--black-stete);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.header__btn:hover {
+  background-color: rgba(43, 43, 43, 0.9);
+}
+.header__icon {
+  font-size: 2rem;
+  transform: scale(1.5);
+}
+
+.result {
+  background-color: #fff;
+  list-style: none;
+  padding: 3rem;
+  display: flex;
+  gap: 2rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%, 50%);
+  z-index: 9999;
+  box-shadow: 0 0 3rem 1rem rgba(30, 27, 75, 0.2);
+  border: 1px solid rgba(30, 27, 75, 0.5);
+  overflow: hidden;
+}
+@media (width < 740px) {
+  .result {
+    flex-direction: column;
+    gap: 3rem;
+    transform: translate(50%, 80%);
+  }
+}
+.result li {
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+}
+@media (width < 1100px) {
+  .result li {
+    width: 20rem;
+  }
+}
+@media (width < 740px) {
+  .result li {
+    width: 35rem;
+    align-items: center;
+  }
+}
+.result li:not(:last-child) {
+  border-right: 1px solid rgba(150, 150, 150, 0.5);
+}
+@media (width < 740px) {
+  .result li:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid rgba(150, 150, 150, 0.5);
+  }
+}
+.result__title {
+  color: var(--grey);
+  font-size: 1.4rem;
+  font-family: geom;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.result__value {
+  font-family: geob;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--black-stete);
+}
+@media (width < 1100px) {
+  .result__value {
+    font-size: 2rem;
+  }
+}
+@media (width < 740px) {
+  .result__value {
+    font-size: 2.4rem;
+  }
+}
+.result__flag {
+  height: 3rem;
+  width: 5rem;
+  margin-top: 0.5rem;
+}
+@media (width < 740px) {
+  .result__flag {
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+}
+.result__flag-image {
+  height: 100%;
+  object-fit: cover;
+}
+
+#map {
+  background: linear-gradient(to right, rgba(36, 99, 235, 0.2), rgba(79, 70, 229, 0.2));
+  flex-basis: 65dvh;
+  animation: colorise 1s infinite linear;
+}
+
+@keyframes colorise {
+  0% {
+    background: linear-gradient(to right, rgba(36, 99, 235, 0.2), rgba(79, 70, 229, 0.2));
+  }
+  100% {
+    background: linear-gradient(to right, rgba(79, 70, 229, 0.2), rgba(36, 99, 235, 0.2));
+  }
+}
+.tx-up {
+  text-transform: uppercase;
+}
+
+.pl {
+  display: block;
+  width: 10rem;
+  height: 10rem;
+}
+
+.pl__arrows,
+.pl__ring-rotate,
+.pl__ring-stroke,
+.pl__tick {
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.pl__arrows {
+  animation-name: arrows42;
+  transform: rotate(45deg);
+  transform-origin: 16px 52px;
+}
+
+.pl__ring-rotate,
+.pl__ring-stroke {
+  transform-origin: 80px 80px;
+}
+
+.pl__ring-rotate {
+  animation-name: ringRotate42;
+}
+
+.pl__ring-stroke {
+  animation-name: ringStroke42;
+  transform: rotate(-45deg);
+}
+
+.pl__tick {
+  animation-name: tick42;
+}
+
+.pl__tick:nth-child(2) {
+  animation-delay: -1.75s;
+}
+
+.pl__tick:nth-child(3) {
+  animation-delay: -1.5s;
+}
+
+.pl__tick:nth-child(4) {
+  animation-delay: -1.25s;
+}
+
+.pl__tick:nth-child(5) {
+  animation-delay: -1s;
+}
+
+.pl__tick:nth-child(6) {
+  animation-delay: -0.75s;
+}
+
+.pl__tick:nth-child(7) {
+  animation-delay: -0.5s;
+}
+
+.pl__tick:nth-child(8) {
+  animation-delay: -0.25s;
+}
+
+/* Animations */
+@keyframes arrows42 {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(405deg);
+  }
+}
+@keyframes ringRotate42 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(720deg);
+  }
+}
+@keyframes ringStroke42 {
+  from, to {
+    stroke-dashoffset: 452;
+    transform: rotate(-45deg);
+  }
+  50% {
+    stroke-dashoffset: 169.5;
+    transform: rotate(-180deg);
+  }
+}
+@keyframes tick42 {
+  from, 3%, 47%, to {
+    stroke-dashoffset: -12;
+  }
+  14%, 36% {
+    stroke-dashoffset: 0;
+  }
+}
+.spinner {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}/*# sourceMappingURL=main.css.map */
