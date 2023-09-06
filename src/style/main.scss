@@ -32,7 +32,7 @@ body {
   min-height: 100dvh;
   display: grid;
   place-content: center;
-  overflow: hidden;
+  overflow-y: hidden;
   // background-color: red;
 }
 .container {
