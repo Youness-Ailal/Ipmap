@@ -156,11 +156,11 @@ body {
     align-items: center;
   }
 }
-.result li:not(:last-child) {
+.result li {
   border-right: 1px solid rgba(150, 150, 150, 0.5);
 }
 @media (width < 740px) {
-  .result li:not(:last-child) {
+  .result li {
     border-right: none;
     border-bottom: 1px solid rgba(150, 150, 150, 0.5);
   }
@@ -202,6 +202,9 @@ body {
 .result__flag-image {
   height: 100%;
   object-fit: cover;
+}
+.result__lastchild {
+  border-right: none !important;
 }
 
 #map {
