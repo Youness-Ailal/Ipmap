@@ -216,7 +216,7 @@ body {
     rgba(36, 99, 235, 0.2),
     rgb(79, 70, 229, 0.2)
   );
-  flex-basis: 65dvh;
+  flex-basis: 100rem;
   animation: colorise 1s infinite linear;
 }
 @keyframes colorise {
@@ -288,4 +288,20 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+.copy {
+  z-index: 9999;
+  padding: 1rem;
+  background-color: #fff;
+  display: grid;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  place-content: center;
+  font-size: 1.4rem;
+  color: var(--black-stete);
+  a {
+    color: currentColor;
+  }
 }
